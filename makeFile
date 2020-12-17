@@ -1,0 +1,11 @@
+all: program
+
+program: main.c bmp.c
+	nasm -fmacho64 -g sepia.asm
+	gcc -o main main.c bmp.c sepia.o -lm
+
+run: program
+	./main
+
+clean:
+	rm main
